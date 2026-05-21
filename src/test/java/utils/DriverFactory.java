@@ -1,0 +1,24 @@
+package utils;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class DriverFactory {
+
+    public static WebDriver driver;
+
+    public static WebDriver getDriver() {
+
+        WebDriverManager.chromedriver().setup();
+
+        driver = new ChromeDriver();
+
+        driver.manage().window().maximize();
+
+        driver.get("https://parabank.parasoft.com/parabank/index.htm");
+
+        return driver;
+    }
+}
